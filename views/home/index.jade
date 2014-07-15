@@ -1,0 +1,36 @@
+extends ../layout
+
+block styles
+  link(rel="stylesheet", href="/linker/stylesheets/chatroom.css")
+
+block body
+  .container
+    .row
+      .col-md-5
+        .panel.panel-primary
+          
+          .panel-heading
+            span.glyphicon.glyphicon-comment
+            |  Chat Room
+            .btn-group.pull-right
+              button.btn.btn-default.btn-xs(type="button")
+                span.glyphicon.glyphicon-refresh
+                |  Refresh
+          .panel-body
+            ul.chat
+              li.left.clearfix
+                span.chat-img.pull-left
+                  img.img-circle(src="http://placehold.it/40/55C1E7/fff&text=N", alt="Nickname's Avatar", title="Nickname")
+                .chat-body.clearfix
+                  .header
+                    strong.primary-font Nickname
+                    small.pull-right.text-muted
+                      span.glyphicon.glyphicon-time
+                      |  12 mins ago
+                  p(style="color: gary") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+
+          .panel-footer
+            .input-group
+              input.form-control.input-sm(type="text", placeholder="Type your message here...")
+              span.input-group-btn
+                button.btn.btn-warning.btn-sm Send
