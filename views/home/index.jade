@@ -22,7 +22,7 @@ block body
               button.btn.btn-default.btn-xs(type="button")
                 span.glyphicon.glyphicon-refresh
                 |  Refresh
-          .panel-body
+          .panel-body(scroll-bottom-on-message)
             ul.chat
               li.left.clearfix(ng-repeat="message in messages")
                 span.chat-img.pull-left
