@@ -34,6 +34,10 @@ module.exports.routes = {
   // (This would also work if you had a file at: `/views/home.ejs`)
   '/': {
     view: 'home/index'
+  },
+  
+  '/old': {
+    view: 'home/index_old'
   }
 
   /*
