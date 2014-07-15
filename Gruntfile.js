@@ -29,9 +29,9 @@ module.exports = function (grunt) {
    */
 
   var cssFilesToInject = [
-    'bootstrap/**/*.css',
     'vendor/**/*.css',
-    'linker/**/*.css'
+    'bootstrap/**/*.css',
+    //'linker/**/*.css'
   ];
 
 
@@ -49,21 +49,21 @@ module.exports = function (grunt) {
     // linked in the proper order order
 
     // Bring in the socket.io client
-    'linker/javascripts/socket.io.js',
+    //'linker/javascripts/socket.io.js',
 
     // then beef it up with some convenience logic for talking to Sails.js
-    'linker/javascripts/sails.io.js',
+    //'linker/javascripts/sails.io.js',
 
     // A simpler boilerplate library for getting you up and running w/ an
     // automatic listener for incoming messages from Socket.io.
-    'linker/javascripts/app.js',
+    //'linker/javascripts/app.js',
 
     // *->    put other dependencies here   <-*
-    'bootstrap/**/*.js',
     'vendor/**/*.js',
+    'bootstrap/**/*.js',
 
     // All of the rest of your app scripts imported here
-    'linker/**/*.js'
+    //'linker/**/*.js'
   ];
 
 
@@ -154,9 +154,15 @@ module.exports = function (grunt) {
           },
           {
             expand: true,
-            cwd: './bower_components/bootstrap-sass-official/assets',
-            src: ['**/*.!(coffee|less|scss|sass)'],
-            dest: '.tmp/public/bootstrap'
+            cwd: './bower_components/bootstrap-sass-official/assets/javascripts',
+            src: ['**/*.js'],
+            dest: '.tmp/public/bootstrap/javascripts'
+          },
+          {
+            expand: true,
+            cwd: './bower_components/bootstrap-sass-official/assets/fonts',
+            src: ['**/*'],
+            dest: '.tmp/public/bootstrap/stylesheets'
           },
           {
             expand: true,
@@ -235,7 +241,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: './assets',
-          src: ['**/*.(scss|sass)'], // Feel free to remove a format if you do not use it.
+          src: ['**/*.*(scss|sass)'], // Feel free to remove a format if you do not use it.
           dest: '.tmp/public',
           ext: '.css'
         }, {
