@@ -2,12 +2,18 @@ extends ../layout
 
 block styles
   link(rel="stylesheet", href="/linker/stylesheets/chatroom.css")
+  
+block scripts
+  script(type="text/javascript", src="/linker/javascripts/chatroom.js")
+  script(type="text/javascript", src="/linker/javascripts/services/SailsSocket.js")
+  script(type="text/javascript", src="/linker/javascripts/services/SailsSocketFactory.js")
+  script(type="text/javascript", src="/linker/javascripts/controllers/MessageController.js")
 
 block body
-  .container
+  .container(ng-app="chatroom")
     .row
       .col-md-5
-        .panel.panel-primary
+        .panel.panel-primary(ng-controller="MessageController")
           
           .panel-heading
             span.glyphicon.glyphicon-comment
@@ -18,16 +24,16 @@ block body
                 |  Refresh
           .panel-body
             ul.chat
-              li.left.clearfix
+              li.left.clearfix(ng-repeat="message in messages")
                 span.chat-img.pull-left
-                  img.img-circle(src="http://placehold.it/40/55C1E7/fff&text=N", alt="Nickname's Avatar", title="Nickname")
+                  img.img-circle(ng-src="http://placehold.it/40/55C1E7/fff&text={{message.nickname | limitTo:1}}", alt="{{message.nickname}}'s Avatar", title="{{message.nickname}}")
                 .chat-body.clearfix
                   .header
-                    strong.primary-font Nickname
+                    strong.primary-font {{message.nickname}}
                     small.pull-right.text-muted
                       span.glyphicon.glyphicon-time
-                      |  12 mins ago
-                  p(style="color: gary") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                      |  {{message.createdAt | date:'HH:mm'}}
+                  p(style="color: {{message.color}}") {{message.text}}
 
           .panel-footer
             .input-group
