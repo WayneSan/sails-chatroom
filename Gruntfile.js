@@ -29,6 +29,8 @@ module.exports = function (grunt) {
    */
 
   var cssFilesToInject = [
+    'bootstrap/**/*.css',
+    'vendor/**/*.css',
     'linker/**/*.css'
   ];
 
@@ -57,6 +59,8 @@ module.exports = function (grunt) {
     'linker/javascripts/app.js',
 
     // *->    put other dependencies here   <-*
+    'bootstrap/**/*.js',
+    'vendor/**/*.js',
 
     // All of the rest of your app scripts imported here
     'linker/**/*.js'
@@ -133,6 +137,7 @@ module.exports = function (grunt) {
   grunt.loadTasks(depsPath + '/grunt-contrib-cssmin/tasks');
   grunt.loadTasks(depsPath + '/grunt-contrib-less/tasks');
   grunt.loadTasks(depsPath + '/grunt-contrib-coffee/tasks');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Project configuration.
   grunt.initConfig({
@@ -142,11 +147,31 @@ module.exports = function (grunt) {
       dev: {
         files: [
           {
-          expand: true,
-          cwd: './assets',
-          src: ['**/*.!(coffee)'],
-          dest: '.tmp/public'
-        }
+            expand: true,
+            cwd: './assets',
+            src: ['**/*.!(coffee|less|scss|sass)'],
+            dest: '.tmp/public'
+          },
+          {
+            expand: true,
+            cwd: './bower_components/bootstrap-sass-official/assets',
+            src: ['**/*.!(coffee|less|scss|sass)'],
+            dest: '.tmp/public/bootstrap'
+          },
+          {
+            expand: true,
+            flatten: true,
+            cwd: './bower_components',
+            src: [
+              'jquery/dist/jquery.js',
+              'socket.io-client/dist/socket.io.js',
+              'angular/angular.js',
+              'angular-bootstrap/ui-bootstrap.js',
+              'angular-bootstrap/ui-bootstrap-tpls.js',
+              'angular-socket-io/socket.js'
+            ],
+            dest: '.tmp/public/vendor/javascripts'
+          }
         ]
       },
       build: {
@@ -199,6 +224,27 @@ module.exports = function (grunt) {
           ext: '.css'
         }
         ]
+      },
+    },
+    
+    sass: {
+      dev: {
+        options: {
+          style: 'expanded' // Set your prefered style for development here.
+        },
+        files: [{
+          expand: true,
+          cwd: './assets',
+          src: ['**/*.(scss|sass)'], // Feel free to remove a format if you do not use it.
+          dest: '.tmp/public',
+          ext: '.css'
+        }, {
+          expand: true,
+          cwd: './bower_components/bootstrap-sass-official/assets/stylesheets',
+          src: ['bootstrap.scss'], // Feel free to remove a format if you do not use it.
+          dest: '.tmp/public/bootstrap/stylesheets',
+          ext: '.css'
+        }]
       }
     },
     
@@ -423,6 +469,7 @@ module.exports = function (grunt) {
     'clean:dev',
     'jst:dev',
     'less:dev',
+    'sass:dev',
     'copy:dev',    
     'coffee:dev'
   ]);
@@ -453,6 +500,7 @@ module.exports = function (grunt) {
     'clean:dev',
     'jst:dev',
     'less:dev',
+    'sass:dev',
     'copy:dev',
     'coffee:dev',
     'concat',

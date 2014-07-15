@@ -5,6 +5,7 @@
 .waterline
 .rigging
 .tmp
+.sass-cache
 
 
 ########################
@@ -24,6 +25,7 @@ logs
 results
 
 node_modules
+bower_components
 
 npm-debug.log
 
