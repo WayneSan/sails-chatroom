@@ -174,7 +174,8 @@ module.exports = function (grunt) {
               'angular/angular.js',
               'angular-bootstrap/ui-bootstrap.js',
               'angular-bootstrap/ui-bootstrap-tpls.js',
-              'angular-socket-io/socket.js'
+              'angular-socket-io/socket.js',
+              'moment/moment.js'
             ],
             dest: '.tmp/public/vendor/javascripts'
           }

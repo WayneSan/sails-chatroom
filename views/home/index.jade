@@ -30,9 +30,9 @@ block body
                 .chat-body.clearfix
                   .header
                     strong.primary-font {{message.nickname}}
-                    small.pull-right.text-muted
+                    small.pull-right.text-muted(title="{{message.createdAt | date:'yyyy-MM-dd HH:mm:ss'}}")
                       span.glyphicon.glyphicon-time
-                      |  {{message.createdAt | date:'HH:mm'}}
+                      |  {{message.createdAt | prettyDate}}
                   p(style="color: {{message.color}}") {{message.text}}
 
           .panel-footer
