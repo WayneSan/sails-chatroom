@@ -22,9 +22,9 @@ app.filter('prettyDate', function() {
 
 app.directive('scrollBottomOnMessage', function() {
   return function(scope, element, attrs) {
-    scope.$watch(function() { return scope.messages }, function(messages) {
-      //console.log('scrollBottomOnMessage', messages);
-      if (messages && messages.length) {
+    scope.$watch('messages.length', function(length) {
+      //console.log('scrollBottomOnMessage', length);
+      if (length) {
         $(element).animate({
           scrollTop: element.prop('scrollHeight')
         }, 1000);
