@@ -5,6 +5,7 @@ block styles
   
 block scripts
   script(type="text/javascript", src="/linker/javascripts/chatroom.js")
+  script(type="text/javascript", src="/linker/javascripts/customDirectives.js")
   script(type="text/javascript", src="/linker/javascripts/services/SailsSocket.js")
   script(type="text/javascript", src="/linker/javascripts/services/SailsSocketFactory.js")
   script(type="text/javascript", src="/linker/javascripts/controllers/MessageController.js")
@@ -38,7 +39,7 @@ block body
           .panel-footer
             .input-group
               span.input-group-btn
-                button.btn.btn-default.btn-sm(ng-init="myMessage.nickname = 'Nickname'") {{myMessage.nickname}}
+                button.btn.btn-default.btn-sm(contenteditable, ng-model="myMessage.nickname") Nickname
               input.form-control.input-sm(type="text", placeholder="Type your message here...", ng-model="myMessage.text", ui-keypress="{13:'sendMessage()'}")
               span.input-group-btn
                 button.btn.btn-warning.btn-sm(ng-click="sendMessage()") Send

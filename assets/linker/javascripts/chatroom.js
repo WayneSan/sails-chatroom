@@ -5,7 +5,7 @@
  *
  * @type {angular.Module}
  */
-var app = angular.module('chatroom', ['ui.utils', 'ui.bootstrap']);
+var app = angular.module('chatroom', ['customDirectives', 'ui.utils', 'ui.bootstrap']);
 
 app.filter('prettyDate', function() {
   return function(dateString) {
