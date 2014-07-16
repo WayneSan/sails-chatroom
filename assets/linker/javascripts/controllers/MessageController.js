@@ -5,13 +5,7 @@ app.controller('MessageController', function($scope, SailsSocket, $log) {
   // Listen for Sails/Socket events
   //
   $scope.$on('SailsSocket:connect', function(ev, data) {
-    // Get full collection of todos
-    SailsSocket.get(
-      '/message?sort=id%20DESC&limit=10', {},
-      function(response) {
-        $log.debug('SailsSocket :: /message', response);
-        $scope.messages = response.reverse();
-      });
+    $scope.refreshMessage();
   });
   
   $scope.$on('SailsSocket:message', function(ev, data) {
@@ -24,6 +18,15 @@ app.controller('MessageController', function($scope, SailsSocket, $log) {
       }
     }
   });
+
+  $scope.refreshMessage = function() {
+    $scope.messages = {};
+    SailsSocket.get('/message?sort=id%20DESC&limit=10', {},
+      function(response) {
+        $log.debug('SailsSocket :: /message', response);
+        $scope.messages = response.reverse();
+      });
+  };
 
   $scope.sendMessage = function() {
     $log.debug('sendMessage :: myMessage =', $scope.myMessage);
