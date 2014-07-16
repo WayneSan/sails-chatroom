@@ -172,6 +172,7 @@ module.exports = function (grunt) {
               'jquery/dist/jquery.js',
               'socket.io-client/dist/socket.io.js',
               'angular/angular.js',
+              'angular-ui-utils/ui-utils.js',
               'angular-bootstrap/ui-bootstrap.js',
               'angular-bootstrap/ui-bootstrap-tpls.js',
               'angular-socket-io/socket.js',

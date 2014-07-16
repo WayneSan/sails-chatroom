@@ -39,6 +39,6 @@ block body
             .input-group
               span.input-group-btn
                 button.btn.btn-default.btn-sm(ng-init="myMessage.nickname = 'Nickname'") {{myMessage.nickname}}
-              input.form-control.input-sm(type="text", placeholder="Type your message here...", ng-model="myMessage.text")
+              input.form-control.input-sm(type="text", placeholder="Type your message here...", ng-model="myMessage.text", ui-keypress="{13:'sendMessage()'}")
               span.input-group-btn
                 button.btn.btn-warning.btn-sm(ng-click="sendMessage()") Send
