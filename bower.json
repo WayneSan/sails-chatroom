@@ -1,10 +1,10 @@
 {
   "name": "sails-chatroom",
-  "version": "0.0.0",
-  "author": "",
-  "description": "",
+  "version": "0.1.0",
+  "author": "WayneSan <waynesan@zerozone.tw>",
+  "description": "A real-time chat room application created with Sails.js and Angular.js.",
   "main": "app.js",
-  "license": "",
+  "license": "MIT",
   "private": true,
   "ignore": [
     "**/.*",

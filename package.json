@@ -1,8 +1,12 @@
 {
   "name": "sails-chatroom",
+  "version": "0.1.0",
+  "author": "WayneSan <waynesan@zerozone.tw>",
+  "description": "A real-time chat room application created with Sails.js and Angular.js.",
+  "main": "app.js",
+  "repository": "",
+  "license": "MIT",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
   "dependencies": {
     "sails": "0.9.16",
     "grunt": "0.4.1",
@@ -19,9 +23,5 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js"
-  },
-  "main": "app.js",
-  "repository": "",
-  "author": "",
-  "license": ""
+  }
 }
