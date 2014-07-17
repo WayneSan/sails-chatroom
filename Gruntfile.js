@@ -182,6 +182,16 @@ module.exports = function (grunt) {
           }
         ]
       },
+      prod: {
+        files: [
+          {
+            expand: true,
+            cwd: './bower_components/bootstrap-sass-official/assets/fonts',
+            src: ['**/*'],
+            dest: '.tmp/public/min'
+          }
+        ]
+      },
       build: {
         files: [
           {
@@ -510,6 +520,7 @@ module.exports = function (grunt) {
     'less:dev',
     'sass:dev',
     'copy:dev',
+    'copy:prod',
     'coffee:dev',
     'concat',
     'uglify',
