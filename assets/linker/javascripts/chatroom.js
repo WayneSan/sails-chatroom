@@ -25,16 +25,3 @@ app.filter('prettyDate', function() {
     return dateMoment.format('YYYY-MM-DD HH:mm');
   };
 });
-
-app.directive('scrollBottomOnMessage', function() {
-  return function(scope, element, attrs) {
-    scope.$watch('messages.length', function(length) {
-      //console.log('scrollBottomOnMessage', length);
-      if (length) {
-        $(element).animate({
-          scrollTop: element.prop('scrollHeight')
-        }, 1000);
-      }
-    });
-  };
-});
