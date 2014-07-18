@@ -39,7 +39,7 @@ block body
           .panel-footer
             .input-group
               span.input-group-btn
-                button.btn.btn-default.btn-sm(contenteditable, ng-model="myMessage.nickname") Nickname
+                button.btn-nickname.btn.btn-default.btn-sm(data-toggle="tooltip" data-placement="top" title="Click to edit", contenteditable, ng-model="myMessage.nickname") Nickname
               input.form-control.input-sm(type="text", placeholder="Type your message here...", ng-model="myMessage.text", ui-keypress="{13:'sendMessage()'}")
               span.input-group-btn
                 button.btn.btn-warning.btn-sm(ng-click="sendMessage()") Send

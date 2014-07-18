@@ -1,5 +1,11 @@
 'use strict';
 
+(function($) {
+  $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+})(jQuery);
+
 /**
  * The main Sails Angular app module
  *
