@@ -18,6 +18,9 @@
     "grunt-cli": "~0.1.13",
     "grunt-sass": "~0.14.0"
   },
+  "engines": {
+    "node": "0.10.x"
+  },
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
